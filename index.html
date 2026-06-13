@@ -188,6 +188,19 @@
     }
     #play-again:hover { background: #6aaf63; }
 
+    /* ── jeff gif ── */
+    #jeff-gif {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+    #jeff-gif img {
+      max-width: 280px;
+      max-height: 220px;
+      border-radius: 8px;
+      border: 3px solid #538d4e;
+    }
+
     /* responsive */
     @media (max-width: 620px) {
       .tile { width: 28px; height: 28px; font-size: 0.75rem; border-width: 1.5px; }
@@ -208,13 +221,14 @@
 <body>
   <header>
     <h1>Jeffwordle</h1>
-    <p>Guess the 12-letter word in 6 tries</p>
+    <p>Guess the 12-letter word in 9 tries</p>
   </header>
 
   <div id="message"></div>
   <div id="board"></div>
   <div id="keyboard"></div>
   <button id="play-again">Play Again</button>
+  <div id="jeff-gif"><img id="jeff-gif-img" src="" alt="Jeff Goldblum" /></div>
 
 <script>
 // ── Word list ──────────────────────────────────────────────────────────────
@@ -226,6 +240,20 @@ const WORD_LIST = [
 ];
 
 const JEFF = "JEFFGOLDBLUM";
+const JEFF_GIFS = [
+  "l0HlULxayBiqCo1aM", // 20th Century Fox
+  "NOLlgmFtbS6u4",     // IFC
+  "hBF0eEzdAVECB0j9yj",// Wicked
+  "hsumSDYh8wUarA6G3U",// Wicked surprised
+  "Sv9KTxL2E5wCQUCGdi",// Vidiots - Jurassic Park
+  "mDNEDddbuWoStJdgex",// Jurassic World - Yes
+  "jV6W6F4xXCcfc77TpD",// Jurassic World - What
+  "xUPGcvhlEsPQYxGGHK",// Team Coco - Jurassic Park
+  "toBi2rizjV8CswqIXG",// Apple Music - reaction
+  "VHW0X0GEQQjiU",     // Life Finds A Way
+  "5hvRn0xkcVJmzWGdAg",// Team Coco - life is a mystery
+  "gHzZcmACcpw1FYqMjc" // World According to Jeff Goldblum
+];
 const WORD_LEN = 12;
 const MAX_GUESSES = 9;
 
@@ -250,6 +278,8 @@ function initGame() {
   renderKeyboard();
   setMessage('');
   document.getElementById('play-again').style.display = 'none';
+  document.getElementById('jeff-gif').style.display = 'none';
+  document.getElementById('jeff-gif-img').src = '';
 }
 
 // ── Rendering ──────────────────────────────────────────────────────────────
@@ -429,6 +459,12 @@ function endGame(won) {
       'GENIUS!', 'MAGNIFICENT!', 'INCREDIBLE!', 'SPLENDID!', 'GREAT!', 'NICE!', 'CLOSE!', 'PHEW!', 'BARELY!'
     ];
     setMessage(messages[Math.min(currentRow - 1, messages.length - 1)], true);
+    if (answer === JEFF) {
+      const id  = JEFF_GIFS[Math.floor(Math.random() * JEFF_GIFS.length)];
+      const img = document.getElementById('jeff-gif-img');
+      img.src = `https://media.giphy.com/media/${id}/giphy.gif`;
+      document.getElementById('jeff-gif').style.display = 'block';
+    }
   } else {
     setMessage(displayAnswer, true);
   }
