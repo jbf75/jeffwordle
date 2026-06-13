@@ -238,13 +238,14 @@
 <script>
 // ── Word list ──────────────────────────────────────────────────────────────
 const WORD_LIST = [
-  "CHARLIEFOUET","JEFFGOLDBERG","JEFFLEBOWSKI","DUMBFOUNDING","FLAMBOYANTLY","SCAFFOLDINGS",
+  "JEFFGOLDBERG","JEFFLEBOWSKI","DUMBFOUNDING","FLAMBOYANTLY","SCAFFOLDINGS",
   "GOBBLEDEGOOK","BODYBUILDING","TROUBLEMAKER","NEIGHBORHOOD","GLOBETROTTER",
   "BEGUILEMENTS","DELIBERATELY","FABULOUSNESS","FLAMBOYANCES","DISEMBODYING",
   "COMFORTABLES","GLOBETROTTED","CONFOUNDEDLY","BEFUDDLEMENT","EMBELLISHING"
 ];
 
-const JEFF = "JEFFGOLDBLUM";
+const JEFF    = "JEFFGOLDBLUM";
+const CHARLIE = "CHARLIEFOUET";
 const JEFF_GIFS = [
   "l0HlULxayBiqCo1aM", // 20th Century Fox
   "NOLlgmFtbS6u4",     // IFC
@@ -270,9 +271,10 @@ let answer, grid, currentRow, currentCol, gameOver;
 const keyState = {};
 
 function pickAnswer() {
-  return Math.random() < 0.9
-    ? JEFF
-    : WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)];
+  const r = Math.random();
+  if (r < 0.70) return JEFF;
+  if (r < 0.80) return CHARLIE;
+  return WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)];
 }
 
 function initGame() {
