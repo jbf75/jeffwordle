@@ -203,21 +203,6 @@
       border-radius: 6px;
       box-shadow: 0 0 40px rgba(0,0,0,0.8);
     }
-    #jeff-gif.small {
-      inset: unset;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: auto;
-      height: auto;
-    }
-    #jeff-gif.small img {
-      width: 180px;
-      height: auto;
-      object-fit: unset;
-      border-radius: 10px;
-      border: 3px solid #538d4e;
-    }
 
     /* responsive */
     @media (max-width: 620px) {
@@ -496,7 +481,7 @@ function endGame(won) {
       gifEl.style.display = 'block';
     } else if (answer === CHARLIE) {
       img.src = CHARLIE_GIF;
-      gifEl.classList.add('small');
+      gifEl.classList.remove('small');
       gifEl.style.display = 'block';
     }
   } else {
