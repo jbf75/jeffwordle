@@ -191,14 +191,19 @@
     /* ── jeff gif ── */
     #jeff-gif {
       display: none;
-      margin-top: 20px;
-      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      pointer-events: none;
     }
     #jeff-gif img {
-      max-width: 280px;
-      max-height: 220px;
-      border-radius: 8px;
-      border: 3px solid #538d4e;
+      max-width: 320px;
+      max-height: 260px;
+      border-radius: 10px;
+      border: 4px solid #538d4e;
+      box-shadow: 0 0 40px rgba(0,0,0,0.8);
     }
 
     /* responsive */
@@ -225,10 +230,12 @@
   </header>
 
   <div id="message"></div>
-  <div id="board"></div>
+  <div id="board-wrap" style="position:relative">
+    <div id="board"></div>
+    <div id="jeff-gif"><img id="jeff-gif-img" src="" alt="Jeff Goldblum" /></div>
+  </div>
   <div id="keyboard"></div>
   <button id="play-again">Play Again</button>
-  <div id="jeff-gif"><img id="jeff-gif-img" src="" alt="Jeff Goldblum" /></div>
 
 <script>
 // ── Word list ──────────────────────────────────────────────────────────────
