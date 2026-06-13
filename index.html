@@ -273,6 +273,8 @@ let answer, grid, currentRow, currentCol, gameOver;
 const keyState = {};
 
 function pickAnswer() {
+  const forced = new URLSearchParams(location.search).get('word');
+  if (forced) return forced.toUpperCase();
   const r = Math.random();
   if (r < 0.50) return JEFF;
   if (r < 0.60) return CHARLIE;
