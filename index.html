@@ -261,6 +261,7 @@ const JEFF_GIFS = [
   "qOf68UfDEU41i",     // Jeff Goldblum - Igby
   "6EEVYz6UuKpK8"      // Jeff Goldblum - faceclaim
 ];
+const JEFF_DEFEAT_GIF = "rqSrBWn4xyPNm"; // Independence Day - hurry
 const WORD_LEN = 12;
 const MAX_GUESSES = 9;
 
@@ -474,6 +475,9 @@ function endGame(won) {
     }
   } else {
     setMessage(displayAnswer, true);
+    const img = document.getElementById('jeff-gif-img');
+    img.src = `https://media.giphy.com/media/${JEFF_DEFEAT_GIF}/giphy.gif`;
+    document.getElementById('jeff-gif').style.display = 'block';
   }
 
   document.getElementById('play-again').style.display = 'inline-block';
