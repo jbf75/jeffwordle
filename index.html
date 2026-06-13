@@ -263,7 +263,8 @@ const JEFF_GIFS = [
   "qOf68UfDEU41i",     // Jeff Goldblum - Igby
   "6EEVYz6UuKpK8"      // Jeff Goldblum - faceclaim
 ];
-const JEFF_DEFEAT_GIF = "rqSrBWn4xyPNm"; // Independence Day - hurry
+const JEFF_DEFEAT_GIF  = "rqSrBWn4xyPNm"; // Independence Day - hurry
+const LEBOWSKI_GIF     = "YlSPP8ZherIJRsaJoP"; // The Big Lebowski - Peacock
 const WORD_LEN = 12;
 const MAX_GUESSES = 9;
 
@@ -481,6 +482,10 @@ function endGame(won) {
       gifEl.style.display = 'block';
     } else if (answer === CHARLIE) {
       img.src = CHARLIE_GIF;
+      gifEl.classList.remove('small');
+      gifEl.style.display = 'block';
+    } else if (answer === 'JEFFLEBOWSKI') {
+      img.src = `https://media.giphy.com/media/${LEBOWSKI_GIF}/giphy.gif`;
       gifEl.classList.remove('small');
       gifEl.style.display = 'block';
     }
