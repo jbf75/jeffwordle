@@ -238,7 +238,7 @@
 <script>
 // ── Word list ──────────────────────────────────────────────────────────────
 const WORD_LIST = [
-  "JEFFGOLDBERG","JEFFLEBOWSKI","DUMBFOUNDING","FLAMBOYANTLY","SCAFFOLDINGS",
+  "JEANBAPTISTE","JEFFGOLDBERG","JEFFLEBOWSKI","DUMBFOUNDING","FLAMBOYANTLY","SCAFFOLDINGS",
   "GOBBLEDEGOOK","BODYBUILDING","TROUBLEMAKER","NEIGHBORHOOD","GLOBETROTTER",
   "BEGUILEMENTS","DELIBERATELY","FABULOUSNESS","FLAMBOYANCES","DISEMBODYING",
   "COMFORTABLES","GLOBETROTTED","CONFOUNDEDLY","BEFUDDLEMENT","EMBELLISHING"
@@ -273,8 +273,8 @@ const keyState = {};
 
 function pickAnswer() {
   const r = Math.random();
-  if (r < 0.70) return JEFF;
-  if (r < 0.80) return CHARLIE;
+  if (r < 0.50) return JEFF;
+  if (r < 0.60) return CHARLIE;
   return WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)];
 }
 
